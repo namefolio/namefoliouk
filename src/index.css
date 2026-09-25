@@ -10,7 +10,7 @@
   --color-lime: #a3d31f;
   --color-on-lime: #171816;
 
-  --font-serif: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
@@ -79,18 +79,17 @@
 
 @utility label {
   font-family: var(--font-sans);
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.875rem; /* 14px */
   line-height: 1.4;
   font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  letter-spacing: -0.005em;
 }
 
 @utility display {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.04;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
 }
 
 @utility wrap-content {
