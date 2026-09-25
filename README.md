@@ -2,7 +2,7 @@
 
 One-page site for **namefolio.co.uk**: a private portfolio of premium domain names, plus a targeted outbound service for domain owners.
 
-Built with React, Vite, TypeScript and Tailwind CSS. Fonts (Instrument Serif and Inter) are self-hosted through Fontsource, so the site makes no requests to Google.
+Built with React, Vite, TypeScript and Tailwind CSS. Fonts (Newsreader and Inter) are self-hosted through Fontsource, so the site makes no requests to Google.
 
 ## 1. Install
 
@@ -86,10 +86,18 @@ src/
   data/domains.ts       the portfolio
   lib/enquiry.ts        enquiry submission (connect Formspree / Resend here)
   hooks/useReveal.ts    subtle scroll reveal
+  hooks/useTheme.ts     light / dark mode state
   components/           Navbar, Hero, Portfolio, DomainRow, EnquiryModal,
-                        Outbound, Contact, Footer, SectionLabel
+                        Outbound, Contact, Footer, SectionLabel, ThemeToggle
   index.css             design tokens (colours, fonts), motion, drawer styles
 public/                 favicon, icons, Open Graph image, robots.txt, sitemap
 ```
 
 Colours and fonts are defined once, in the `@theme` block at the top of `src/index.css`.
+
+## Light and dark mode
+
+The switch in the navigation toggles between light and dark. Until a visitor picks one, the site follows their device setting. After that, their choice is remembered in the browser.
+
+- Dark-mode colours: the `:root[data-theme='dark']` block in `src/index.css`.
+- The small script in `index.html` applies the theme before the page is drawn, so it never flashes the wrong colours.

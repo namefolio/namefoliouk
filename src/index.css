@@ -8,7 +8,7 @@
   --color-rule: #d8d6cf;
   --color-white: #ffffff;
 
-  --font-serif: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  --font-serif: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
@@ -16,8 +16,32 @@
 
 /* ── Base ─────────────────────────────────────────────────── */
 
+/* ── Themes ───────────────────────────────────────────────
+   Light is the default. Dark is applied via <html data-theme="dark">,
+   set before first paint by the inline script in index.html. */
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --backdrop: rgb(23 24 22 / 0.28);
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --color-paper: #141513;
+    --color-ink: #eceae3;
+    --color-muted: #9c9d96;
+    --color-olive: #a7b39e;
+    --color-rule: #2f312d;
+    --backdrop: rgb(0 0 0 / 0.55);
+  }
+}
+
 @layer base {
   html {
+    transition:
+      background-color 500ms var(--ease-editorial),
+      color 500ms var(--ease-editorial);
     background: var(--color-paper);
     color: var(--color-ink);
     scroll-behavior: smooth;
@@ -52,18 +76,18 @@
 
 @utility label {
   font-family: var(--font-sans);
-  font-size: 0.6875rem; /* 11px */
+  font-size: 0.75rem; /* 12px */
   line-height: 1.4;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 @utility display {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.015em;
-  line-height: 0.98;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
 }
 
 @utility wrap-content {
@@ -199,18 +223,18 @@
   }
 }
 .enquiry-dialog::backdrop {
-  background: rgb(23 24 22 / 0);
+  background: transparent;
   transition:
     background 600ms var(--ease-editorial),
     overlay 600ms allow-discrete,
     display 600ms allow-discrete;
 }
 .enquiry-dialog[open]::backdrop {
-  background: rgb(23 24 22 / 0.28);
+  background: var(--backdrop);
 }
 @starting-style {
   .enquiry-dialog[open]::backdrop {
-    background: rgb(23 24 22 / 0);
+    background: transparent;
   }
 }
 

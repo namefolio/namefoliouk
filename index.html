@@ -10,10 +10,23 @@
       content="Namefolio is a private portfolio of premium domain names and a targeted outbound service for domain owners."
     />
     <link rel="canonical" href="https://namefolio.co.uk/" />
-    <meta name="theme-color" content="#F4F2ED" />
+    <meta name="theme-color" content="#F4F2ED" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)" />
     <style>
       html { background: #f4f2ed; color: #171816; }
+      html[data-theme='dark'] { background: #141513; color: #eceae3; }
     </style>
+    <!-- Apply the saved (or system) theme before first paint to avoid a flash. -->
+    <script>
+      (function () {
+        var theme
+        try { theme = localStorage.getItem('theme') } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

@@ -13,7 +13,7 @@ export function Hero() {
         <div className="col-span-12 lg:col-span-9">
           <h1
             id="hero-title"
-            className="display text-[clamp(3.5rem,14vw,5.25rem)] md:text-[clamp(4.5rem,9vw,9.25rem)]"
+            className="display text-[clamp(2.75rem,11.4vw,4.25rem)] md:text-[clamp(3.75rem,7.4vw,7.5rem)]"
           >
             <span className="enter block" style={delay(300)}>
               Digital assets,

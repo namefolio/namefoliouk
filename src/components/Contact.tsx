@@ -12,7 +12,7 @@ export function Contact() {
           <SectionLabel index="03">Contact</SectionLabel>
         </div>
         <div className="col-span-12 lg:col-span-9">
-          <h2 id="contact-title" className="display text-[clamp(2.75rem,11vw,4rem)] md:text-[clamp(4rem,7.4vw,7rem)]">
+          <h2 id="contact-title" className="display text-[clamp(2.25rem,9.4vw,3.25rem)] md:text-[clamp(3.25rem,6vw,5.75rem)]">
             Let’s talk.
           </h2>
           <p className="mt-10 max-w-[26rem] text-[1.0625rem] leading-[1.65] text-muted md:mt-14 md:text-lg">
@@ -23,7 +23,7 @@ export function Contact() {
             href={`mailto:${SITE.email}`}
             className="group mt-16 inline-flex max-w-full items-baseline gap-4 md:mt-24"
           >
-            <span className="display link-line-rest pb-2 text-[clamp(1.6rem,7.4vw,2.5rem)] leading-tight [overflow-wrap:anywhere] md:text-[clamp(2.5rem,4.6vw,4.25rem)]">
+            <span className="display link-line-rest pb-2 text-[clamp(1.375rem,6.2vw,2.125rem)] leading-tight [overflow-wrap:anywhere] md:text-[clamp(2.125rem,3.8vw,3.5rem)]">
               {SITE.email}
             </span>
             <span
