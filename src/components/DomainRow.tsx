@@ -26,8 +26,8 @@ export function DomainRow({ domain, index, onSelect }: DomainRowProps) {
 
         <span
           className={[
-            'display col-span-2 row-start-2 min-w-0 text-[clamp(2.375rem,10.5vw,3.5rem)] [overflow-wrap:anywhere]',
-            'md:col-span-9 md:col-start-2 md:row-start-1 md:text-[clamp(3rem,6.4vw,6rem)] lg:col-span-7 lg:col-start-4',
+            'display col-span-2 row-start-2 min-w-0 text-[clamp(1.875rem,8.8vw,2.75rem)] [overflow-wrap:anywhere]',
+            'md:col-span-9 md:col-start-2 md:row-start-1 md:text-[clamp(2.5rem,5vw,4.75rem)] lg:col-span-7 lg:col-start-4',
             'transition-transform duration-500 ease-editorial motion-safe:md:group-hover:translate-x-2 motion-safe:md:group-focus-visible:translate-x-2',
             isSold ? 'text-muted' : 'text-ink',
           ].join(' ')}

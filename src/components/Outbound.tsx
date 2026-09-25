@@ -16,7 +16,7 @@ export function Outbound() {
         <div className="col-span-12 lg:col-span-9">
           <h2
             id="outbound-title"
-            className="display max-w-[11ch] text-[clamp(2.75rem,11vw,4rem)] md:text-[clamp(4rem,7.4vw,7rem)]"
+            className="display max-w-[12ch] text-[clamp(2.25rem,9.4vw,3.25rem)] md:text-[clamp(3.25rem,6vw,5.75rem)]"
           >
             We help domain owners sell.
           </h2>

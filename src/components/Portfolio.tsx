@@ -18,7 +18,7 @@ export function Portfolio({ onSelect }: PortfolioProps) {
           <SectionLabel index="01">Portfolio</SectionLabel>
         </div>
         <div className="col-span-12 lg:col-span-9">
-          <h2 id="portfolio-title" className="display text-[clamp(2.75rem,9vw,3.5rem)] md:text-[clamp(3.5rem,6.2vw,5.75rem)]">
+          <h2 id="portfolio-title" className="display text-[clamp(2.25rem,8vw,3rem)] md:text-[clamp(3rem,5.2vw,4.75rem)]">
             Selected assets
           </h2>
           <p className="mt-8 max-w-[28rem] text-[1.0625rem] leading-[1.65] text-muted md:mt-10">

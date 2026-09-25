@@ -99,7 +99,7 @@ function EnquiryForm({ domain }: { domain: string }) {
 
   return (
     <div className="flex flex-1 flex-col">
-      <p className="display mt-14 text-[clamp(2.25rem,10vw,3.5rem)] [overflow-wrap:anywhere] md:mt-20">{domain}</p>
+      <p className="display mt-14 text-[clamp(1.875rem,8vw,2.75rem)] [overflow-wrap:anywhere] md:mt-20">{domain}</p>
 
       {status === 'sent' || status === 'mailto' ? (
         <div className="mt-16 border-t border-rule pt-8" role="status">
