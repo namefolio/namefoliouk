@@ -82,7 +82,7 @@ The canonical URL, Open Graph tags and sitemap all assume `https://namefolio.co.
 
 ```
 src/
-  config/site.ts        name, email, location, year
+  config/site.ts        name, email, year
   data/domains.ts       the portfolio
   lib/enquiry.ts        enquiry submission (connect Formspree / Resend here)
   hooks/useReveal.ts    subtle scroll reveal

@@ -8,6 +8,5 @@ export const SITE = {
   email: 'hello@namefolio.co.uk',
   url: 'https://namefolio.co.uk',
   displayUrl: 'namefolio.co.uk',
-  location: 'London',
   year: 2026,
 } as const

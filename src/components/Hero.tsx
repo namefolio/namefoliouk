@@ -19,7 +19,7 @@ export function Hero() {
               Digital assets,
             </span>
             <span className="enter block italic" style={delay(420)}>
-              selectively acquired.
+              selectively acquired<span className="text-lime">.</span>
             </span>
           </h1>
 

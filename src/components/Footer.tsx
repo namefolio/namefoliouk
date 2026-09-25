@@ -7,10 +7,7 @@ export function Footer() {
         <p className="label">
           © {SITE.year} {SITE.name}
         </p>
-        <p className="label flex gap-6">
-          <span>{SITE.location}</span>
-          <span className="normal-case tracking-[0.08em]">{SITE.displayUrl}</span>
-        </p>
+        <p className="label normal-case tracking-[0.08em]">{SITE.displayUrl}</p>
       </div>
     </footer>
   )
