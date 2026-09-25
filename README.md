@@ -70,6 +70,8 @@ The form sends a JSON `POST` with `{ domain, name, email, message }`.
 | Netlify | `npm run build` | `dist` |
 | Cloudflare Pages | `npm run build` | `dist` |
 
+**Cloudflare Pages:** in *Settings → Builds & deployments*, set the framework preset to **Vite** (or leave it as None) with build command **`npm run build`**. The output directory (`dist`) is already set in `wrangler.toml`, and `.node-version` pins Node 22. Vite 8 won't build on Node 18. If the build command is left empty, Cloudflare serves the unbuilt source and the page shows up blank white.
+
 1. Push this repository to GitHub.
 2. Import it into your host and use the settings above. Vercel and Netlify detect Vite on their own.
 3. Add `namefolio.co.uk` (and `www.namefolio.co.uk`) as custom domains, then update DNS as your host tells you.
