@@ -1,0 +1,264 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-paper: #f4f2ed;
+  --color-ink: #171816;
+  --color-muted: #6f706a;
+  --color-olive: #263027;
+  --color-rule: #d8d6cf;
+  --color-white: #ffffff;
+
+  --font-serif: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'cv11';
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-olive);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-olive);
+    outline-offset: 4px;
+  }
+
+  section[id] {
+    scroll-margin-top: 1.5rem;
+  }
+}
+
+/* ── Type primitives ──────────────────────────────────────── */
+
+@utility label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@utility display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
+
+@utility wrap-content {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 4rem;
+  }
+}
+
+/* Hairline underline that draws in from the left on hover. */
+@utility link-line {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 500ms var(--ease-editorial);
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+/* Same line, but resting visible and retreating on hover. */
+@utility link-line-rest {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 600ms var(--ease-editorial);
+  &:hover,
+  &:focus-visible {
+    background-size: 0% 1px;
+  }
+}
+
+/* ── Motion ───────────────────────────────────────────────── */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.enter {
+  opacity: 0;
+  animation: rise 900ms var(--ease-editorial) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.enter-fade {
+  opacity: 0;
+  animation: fade 1200ms var(--ease-editorial) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms var(--ease-editorial),
+    transform 700ms var(--ease-editorial);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.scroll-cue {
+  animation: drift 2.4s ease-in-out infinite;
+}
+
+/* ── Enquiry drawer (native <dialog>) ─────────────────────── */
+
+.enquiry-dialog {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  inset: 0 0 0 auto;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  transform: translateX(100%);
+  transition:
+    transform 600ms var(--ease-editorial),
+    overlay 600ms allow-discrete,
+    display 600ms allow-discrete;
+}
+@media (width >= 48rem) {
+  .enquiry-dialog {
+    width: min(560px, 100%);
+    border-left: 1px solid var(--color-rule);
+  }
+}
+.enquiry-dialog[open] {
+  transform: none;
+}
+@starting-style {
+  .enquiry-dialog[open] {
+    transform: translateX(100%);
+  }
+}
+.enquiry-dialog::backdrop {
+  background: rgb(23 24 22 / 0);
+  transition:
+    background 600ms var(--ease-editorial),
+    overlay 600ms allow-discrete,
+    display 600ms allow-discrete;
+}
+.enquiry-dialog[open]::backdrop {
+  background: rgb(23 24 22 / 0.28);
+}
+@starting-style {
+  .enquiry-dialog[open]::backdrop {
+    background: rgb(23 24 22 / 0);
+  }
+}
+
+/* Underline-only fields */
+.field {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--color-rule);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  color: var(--color-ink);
+  appearance: none;
+  transition: border-color 300ms var(--ease-editorial);
+}
+.field:hover {
+  border-bottom-color: var(--color-muted);
+}
+.field:focus {
+  outline: none;
+  border-bottom-color: var(--color-ink);
+}
+.field:focus-visible {
+  outline: none;
+}
+
+/* ── Reduced motion ───────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .enter,
+  .enter-fade,
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .scroll-cue {
+    animation: none;
+  }
+}
