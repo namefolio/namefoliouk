@@ -54,7 +54,7 @@ export function EnquiryModal({ domain, open, session, onClose }: EnquiryModalPro
       <div className="flex min-h-full flex-col px-6 pt-6 pb-10 md:px-12 md:pt-10 md:pb-12">
         <div className="flex items-center justify-between border-b border-rule pb-5">
           <p id={titleId} className="label text-muted">
-            Interested in this domain?
+            Like this one?
           </p>
           <button
             type="button"
@@ -65,7 +65,7 @@ export function EnquiryModal({ domain, open, session, onClose }: EnquiryModalPro
             <span aria-hidden="true" className="hidden sm:inline">
               Close
             </span>
-            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="1">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="1.25">
               <path d="M1 1l10 10M11 1L1 11" />
             </svg>
           </button>
@@ -103,13 +103,13 @@ function EnquiryForm({ domain }: { domain: string }) {
 
       {status === 'sent' || status === 'mailto' ? (
         <div className="mt-16 border-t border-rule pt-8" role="status">
-          <p className="display text-3xl">Thank you.</p>
+          <p className="display text-3xl">Thanks!</p>
           <p className="mt-4 max-w-sm leading-relaxed text-muted">
             {status === 'sent' ? (
-              'Your enquiry has been received. We will be in touch shortly.'
+              'Your message is on its way. We’ll get back to you soon.'
             ) : (
               <>
-                Your email client should now open with your enquiry. If it doesn’t, write to us at{' '}
+                Your email app should pop open with your message ready to send. If it doesn’t, just email us at{' '}
                 <a href={`mailto:${SITE.email}`} className="link-line-rest text-ink">
                   {SITE.email}
                 </a>
@@ -121,9 +121,9 @@ function EnquiryForm({ domain }: { domain: string }) {
       ) : (
         <form onSubmit={handleSubmit} className="mt-14 flex flex-1 flex-col md:mt-16">
           <div className="space-y-9">
-            <Field label="Name" name="name" autoComplete="name" />
+            <Field label="Your name" name="name" autoComplete="name" />
             <Field label="Email" name="email" type="email" autoComplete="email" />
-            <Field label="Message" name="message" multiline />
+            <Field label="Anything we should know?" name="message" multiline />
           </div>
 
           <div className="mt-auto pt-14">
@@ -139,9 +139,9 @@ function EnquiryForm({ domain }: { domain: string }) {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="group label flex w-full cursor-pointer items-center justify-between bg-ink px-6 py-5 text-paper transition-colors duration-300 hover:bg-lime hover:text-on-lime disabled:cursor-wait disabled:opacity-70"
+              className="group label flex w-full cursor-pointer items-center justify-between rounded-md bg-ink px-6 py-4 text-paper transition-colors duration-300 hover:bg-lime hover:text-on-lime disabled:cursor-wait disabled:opacity-70"
             >
-              <span>{status === 'sending' ? 'Sending…' : 'Send enquiry'}</span>
+              <span>{status === 'sending' ? 'Sending…' : 'Send message'}</span>
               <span
                 aria-hidden="true"
                 className="text-sm transition-transform duration-500 ease-editorial group-hover:translate-x-1"

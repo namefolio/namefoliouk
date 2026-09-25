@@ -18,14 +18,13 @@ export function ThemeToggle({ theme, onChange, className = '' }: ThemeToggleProp
       onClick={() => onChange(isDark ? 'light' : 'dark')}
       className={`group label -my-2 cursor-pointer items-center gap-3 py-2 text-muted transition-colors duration-300 hover:text-ink ${className}`}
     >
-      <span aria-hidden="true" className="w-[2.5rem] text-right">
+      <span aria-hidden="true" className="w-[2.25rem] text-right">
         {isDark ? 'Dark' : 'Light'}
       </span>
-      {/* A small square-cornered switch: hairline track, solid knob. */}
-      <span aria-hidden="true" className="relative inline-block h-3 w-6 border border-current">
+      <span aria-hidden="true" className="relative inline-block h-3.5 w-7 rounded-full border border-current">
         <span
-          className={`absolute top-px left-px h-2 w-2 bg-current transition-transform duration-500 ease-editorial ${
-            isDark ? 'translate-x-3' : 'translate-x-0'
+          className={`absolute top-[2px] left-[2px] h-2 w-2 rounded-full bg-current transition-transform duration-500 ease-editorial ${
+            isDark ? 'translate-x-3.5' : 'translate-x-0'
           }`}
         />
       </span>

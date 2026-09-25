@@ -3,8 +3,8 @@ import { useTheme } from '../hooks/useTheme'
 import { ThemeToggle } from './ThemeToggle'
 
 const LINKS = [
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#outbound', label: 'Outbound' },
+  { href: '#portfolio', label: 'Domains' },
+  { href: '#outbound', label: 'Sell your domains' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -15,10 +15,10 @@ export function Navbar() {
     <header className="wrap-content enter-fade" style={{ '--delay': '100ms' } as CSSProperties}>
       <nav
         aria-label="Primary"
-        className="flex flex-col gap-6 border-b border-rule pt-7 pb-5 sm:flex-row sm:items-baseline sm:justify-between md:pt-10 md:pb-6"
+        className="flex flex-col gap-5 border-b border-rule pt-7 pb-5 sm:flex-row sm:items-baseline sm:justify-between md:pt-10 md:pb-6"
       >
         <div className="flex items-center justify-between">
-          <a href="#top" className="label tracking-[0.3em] text-ink" aria-label="Namefolio — back to top">
+          <a href="#top" className="display text-xl tracking-[-0.03em] text-ink" aria-label="Namefolio — back to top">
             Namefolio
           </a>
           <ThemeToggle theme={theme} onChange={setTheme} className="flex sm:hidden" />

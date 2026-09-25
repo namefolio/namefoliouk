@@ -1,8 +1,8 @@
 # Namefolio
 
-One-page site for **namefolio.co.uk**: a private portfolio of premium domain names, plus a targeted outbound service for domain owners.
+One-page site for **namefolio.co.uk**: short, memorable domain names for startups and growing businesses, plus help for owners who want to sell theirs.
 
-Built with React, Vite, TypeScript and Tailwind CSS. Fonts (Newsreader and Inter) are self-hosted through Fontsource, so the site makes no requests to Google.
+Built with React, Vite, TypeScript and Tailwind CSS. Fonts (Bricolage Grotesque and Inter) are self-hosted through Fontsource, so the site makes no requests to Google.
 
 ## 1. Install
 
