@@ -36,6 +36,9 @@ export function DomainRow({ domain, index, onSelect }: DomainRowProps) {
         </span>
 
         <span className="col-start-2 row-start-1 flex items-baseline justify-end gap-3 md:col-span-2 md:col-start-11">
+          {domain.status === 'available' && (
+            <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 self-center bg-lime" />
+          )}
           <span className="label text-muted transition-colors duration-500 ease-editorial group-hover:text-olive group-focus-visible:text-olive">
             {status}
           </span>

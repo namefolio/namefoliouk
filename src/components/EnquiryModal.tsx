@@ -139,7 +139,7 @@ function EnquiryForm({ domain }: { domain: string }) {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="group label flex w-full cursor-pointer items-center justify-between bg-ink px-6 py-5 text-paper transition-colors duration-300 hover:bg-olive disabled:cursor-wait disabled:opacity-70"
+              className="group label flex w-full cursor-pointer items-center justify-between bg-ink px-6 py-5 text-paper transition-colors duration-300 hover:bg-lime hover:text-on-lime disabled:cursor-wait disabled:opacity-70"
             >
               <span>{status === 'sending' ? 'Sending…' : 'Send enquiry'}</span>
               <span
