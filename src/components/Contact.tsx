@@ -15,7 +15,7 @@ export function Contact() {
           <h2 id="contact-title" className="display text-[clamp(2.25rem,9vw,3.25rem)] md:text-[clamp(3rem,5.4vw,5.25rem)]">
             Say hello<span className="text-lime">.</span>
           </h2>
-          <p className="mt-8 max-w-[28rem] text-[1.0625rem] leading-[1.6] text-muted md:mt-10 md:text-lg">
+          <p className="mt-8 max-w-[28rem] text-lg leading-[1.6] text-muted md:mt-10">
             Want one of our domains, or thinking about selling yours? Drop us a line.
           </p>
 

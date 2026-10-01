@@ -2,7 +2,7 @@
 
 One-page site for **namefolio.co.uk**: short, memorable domain names for startups and growing businesses, plus help for owners who want to sell theirs.
 
-Built with React, Vite, TypeScript and Tailwind CSS. Fonts (Bricolage Grotesque and Inter) are self-hosted through Fontsource, so the site makes no requests to Google.
+Built with React, Vite, TypeScript and Tailwind CSS. The font (Figtree) is self-hosted through Fontsource, so the site makes no requests to Google.
 
 ## 1. Install
 

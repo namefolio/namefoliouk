@@ -21,7 +21,7 @@ export function Portfolio({ onSelect }: PortfolioProps) {
           <h2 id="portfolio-title" className="display text-[clamp(2.25rem,9vw,3rem)] md:text-[clamp(3rem,5vw,4.5rem)]">
             Pick a name
           </h2>
-          <p className="mt-6 max-w-[28rem] text-[1.0625rem] leading-[1.6] text-muted md:mt-8">
+          <p className="mt-6 max-w-[28rem] text-lg leading-[1.6] text-muted md:mt-8">
             Names we think deserve a great business behind them. Tap one to ask about it.
           </p>
         </div>

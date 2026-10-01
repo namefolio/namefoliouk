@@ -13,7 +13,7 @@ export function Hero() {
         <div className="col-span-12 lg:col-span-9">
           <h1
             id="hero-title"
-            className="display text-[clamp(2.375rem,10vw,3.75rem)] [text-wrap:balance] md:text-[clamp(3rem,4.8vw,5rem)]"
+            className="display text-[clamp(2.125rem,8.8vw,3.5rem)] [text-wrap:balance] md:text-[clamp(3.25rem,5.8vw,5.75rem)]"
           >
             <span className="enter block" style={delay(300)}>
               Great domain names,
@@ -24,7 +24,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="enter mt-8 max-w-[31rem] text-[1.0625rem] leading-[1.6] text-muted md:mt-12 md:text-lg"
+            className="enter mt-8 max-w-[31rem] text-lg leading-[1.6] text-muted md:mt-12"
             style={delay(600)}
           >
             A small collection of short, memorable domains for startups and growing businesses. Find one you like and

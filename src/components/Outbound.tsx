@@ -20,7 +20,7 @@ export function Outbound() {
           >
             Got domains to sell? We can help.
           </h2>
-          <p className="mt-8 max-w-[34rem] text-[1.0625rem] leading-[1.6] text-muted md:mt-10 md:text-lg">
+          <p className="mt-8 max-w-[34rem] text-lg leading-[1.6] text-muted md:mt-10">
             If you own a portfolio of domains, we’ll reach out to the businesses most likely to want them, get the
             conversations going and help you get to a sale.
           </p>

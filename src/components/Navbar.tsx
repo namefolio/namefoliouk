@@ -18,7 +18,7 @@ export function Navbar() {
         className="flex flex-col gap-5 border-b border-rule pt-7 pb-5 sm:flex-row sm:items-baseline sm:justify-between md:pt-10 md:pb-6"
       >
         <div className="flex items-center justify-between">
-          <a href="#top" className="display text-xl tracking-[-0.03em] text-ink" aria-label="Namefolio — back to top">
+          <a href="#top" className="display text-xl tracking-[-0.02em] text-ink" aria-label="Namefolio — back to top">
             Namefolio
           </a>
           <ThemeToggle theme={theme} onChange={setTheme} className="flex sm:hidden" />
