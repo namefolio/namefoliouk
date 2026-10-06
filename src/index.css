@@ -1,11 +1,9 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/figtree';
 
 @theme {
   --color-paper: #f4f2ed;
   --color-ink: #171816;
-  --color-muted: #55564f;
-  --color-olive: #263027;
-  --color-rule: #d8d6cf;
   --color-white: #ffffff;
   --color-lime: #a3d31f;
   --color-on-lime: #171816;
@@ -95,6 +93,17 @@
 @utility chip-clay {
   background: var(--color-clay);
   color: var(--color-white);
+}
+
+/* Chip that is a link (the email address): turns lime on hover. */
+@utility chip-link {
+  transition: background-color 300ms, color 300ms;
+  @media (hover: hover) {
+    &:hover {
+      background: var(--color-lime);
+      color: var(--color-on-lime);
+    }
+  }
 }
 
 /* ── Motion ───────────────────────────────────────────────── */
