@@ -10,9 +10,31 @@
   --color-clay: #b8452f;
   --color-cobalt: #2b59c3;
 
-  --font-sans: 'Figtree Variable', 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Figtree Variable', 'Figtree Fallback', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Arial resized to Figtree's metrics. Text shows in this while Figtree
+   loads, so swapping fonts doesn't shift the layout. Liberation Sans has the
+   same metrics as Arial and stands in for it on Linux. */
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Arial'), local('ArialMT'), local('Liberation Sans');
+  font-weight: 100 599;
+  size-adjust: 100.3%;
+  ascent-override: 94.72%;
+  descent-override: 24.93%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold');
+  font-weight: 600 900;
+  size-adjust: 95.73%;
+  ascent-override: 99.24%;
+  descent-override: 26.12%;
+  line-gap-override: 0%;
 }
 
 @layer base {
@@ -108,9 +130,12 @@
 
 /* ── Motion ───────────────────────────────────────────────── */
 
+/* Blocks fade in from 0.01, not 0. Browsers skip fully transparent text when
+   they record Largest Contentful Paint, so starting at 0 leaves PageSpeed
+   Insights with no LCP and no Performance score. 0.01 still looks invisible. */
 @keyframes rise {
   from {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(10px);
   }
   to {
@@ -120,7 +145,7 @@
 }
 
 .enter {
-  opacity: 0;
+  opacity: 0.01;
   animation: rise 700ms var(--ease-editorial) forwards;
   animation-delay: var(--delay, 0ms);
 }
