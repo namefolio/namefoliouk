@@ -18,7 +18,7 @@ export function ThemeToggle({ theme, onChange, className = '' }: ThemeToggleProp
       onClick={() => onChange(isDark ? 'light' : 'dark')}
       className={`group label -my-2 cursor-pointer items-center gap-3 py-2 text-muted transition-colors duration-300 hover:text-ink ${className}`}
     >
-      <span aria-hidden="true" className="w-[2.25rem] text-right">
+      <span aria-hidden="true" className="hidden text-right sm:inline">
         {isDark ? 'Dark' : 'Light'}
       </span>
       <span aria-hidden="true" className="relative inline-block h-3.5 w-7 rounded-full border border-current">
