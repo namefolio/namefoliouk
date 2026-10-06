@@ -12,9 +12,6 @@
     <link rel="canonical" href="https://namefolio.co.uk/" />
     <meta name="theme-color" content="#F4F2ED" />
     <meta name="color-scheme" content="light only" />
-    <style>
-      html { background: #f4f2ed; color: #171816; }
-    </style>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -46,15 +43,55 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Inlined into the page at build time (see vite.config.ts). -->
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <noscript>
-      <p style="padding: 24px; font-family: sans-serif">
-        Namefolio — great domain names for startups and growing businesses. Say hello:
-        <a href="mailto:hello@namefolio.co.uk">hello@namefolio.co.uk</a>
-      </p>
-    </noscript>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="mx-auto w-full max-w-[72rem] px-6 pt-10 pb-12 md:px-12 md:pt-16 md:pb-16 lg:px-16">
+      <header class="enter">
+        <h1>
+          <span class="chip chip-ink display inline-block text-[clamp(1.875rem,7.4vw,3.25rem)] leading-[1.25]">Namefolio.co.uk</span>
+        </h1>
+      </header>
+
+      <main class="mt-14 space-y-14 md:mt-20 md:space-y-20">
+        <section aria-labelledby="what" class="enter" style="--delay: 120ms">
+          <h2 id="what" class="label mb-4 md:mb-5">What is a domain name?</h2>
+          <p class="display text-[clamp(2.5rem,8vw,4.5rem)]">
+            It’s your <span class="chip chip-lime">brand.</span>
+          </p>
+        </section>
+
+        <section aria-labelledby="who" class="enter" style="--delay: 240ms">
+          <h2 id="who" class="label mb-4 md:mb-5">Who are we?</h2>
+          <p class="max-w-[60rem] text-lg leading-[1.9] md:text-xl md:leading-[1.9]">
+            A great domain name is the first thing people see. It makes a young business look established from day
+            one, just like <span class="chip chip-ink">Namefolio.co.uk</span> does for us. We look after a changing
+            collection of short, memorable domains for startups and growing businesses. Looking for a name? Tell us
+            what you’re building at
+            <a class="chip chip-ink chip-link" href="mailto:hello@namefolio.co.uk">hello@namefolio.co.uk</a>
+            and we’ll send you names that fit.
+          </p>
+        </section>
+
+        <section aria-labelledby="sell" class="enter" style="--delay: 360ms">
+          <h2 id="sell" class="label mb-4 md:mb-5">Got domains to sell?</h2>
+          <p class="display text-[clamp(1.875rem,6vw,3.5rem)] leading-[1.3] md:leading-[1.28]">
+            We find <span class="chip chip-lime md:whitespace-nowrap">the right buyers</span> and start
+            <span class="chip chip-cobalt md:whitespace-nowrap">real conversations</span> and keep it
+            <span class="chip chip-clay md:whitespace-nowrap">low-key</span> and help you get to
+            <span class="chip chip-ink md:whitespace-nowrap">a sale.</span>
+          </p>
+          <p class="mt-8 text-lg leading-[1.9] md:text-xl">
+            Own a portfolio? Email
+            <a class="chip chip-ink chip-link" href="mailto:hello@namefolio.co.uk">hello@namefolio.co.uk</a>
+          </p>
+        </section>
+      </main>
+
+      <footer class="mt-20 text-base md:mt-28">
+        <p>© 2026 <span class="chip chip-ink">Namefolio.co.uk</span></p>
+      </footer>
+    </div>
   </body>
 </html>
