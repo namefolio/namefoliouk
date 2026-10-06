@@ -2,8 +2,6 @@ import type { CSSProperties } from 'react'
 import { SITE } from '../config/site'
 import { Chip, type ChipColour } from './Chip'
 import { QuestionLabel } from './QuestionLabel'
-import { useTheme } from '../hooks/useTheme'
-import { ThemeToggle } from './ThemeToggle'
 import { Footer } from './Footer'
 
 const delay = (ms: number) => ({ '--delay': `${ms}ms` }) as CSSProperties
@@ -21,7 +19,6 @@ const SELLING: { text: string; chip?: ChipColour }[] = [
 ]
 
 export function Home() {
-  const { theme, setTheme } = useTheme()
   const mailto = `mailto:${SITE.email}`
 
   return (
@@ -32,7 +29,6 @@ export function Home() {
             {SITE.displayName}
           </Chip>
         </h1>
-        <ThemeToggle theme={theme} onChange={setTheme} className="mt-2 flex md:mt-4" />
       </header>
 
       <main className="mt-14 space-y-14 md:mt-20 md:space-y-20">

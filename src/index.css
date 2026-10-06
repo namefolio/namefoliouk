@@ -17,23 +17,9 @@
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ── Themes ───────────────────────────────────────────────
-   Light is the default. Dark is applied via <html data-theme="dark">,
-   set before first paint by the inline script in index.html. */
-
 @layer base {
   :root {
-    color-scheme: light;
-  }
-
-  :root[data-theme='dark'] {
-    color-scheme: dark;
-    --color-paper: #141513;
-    --color-ink: #eceae3;
-    --color-muted: #b3b4ad;
-    --color-olive: #a7b39e;
-    --color-rule: #2f312d;
-    --color-lime: #c8f542;
+    color-scheme: only light;
   }
 }
 
@@ -41,9 +27,6 @@
 
 @layer base {
   html {
-    transition:
-      background-color 500ms var(--ease-editorial),
-      color 500ms var(--ease-editorial);
     background: var(--color-paper);
     color: var(--color-ink);
     -webkit-text-size-adjust: 100%;
@@ -96,7 +79,7 @@
   box-decoration-break: clone;
 }
 
-/* Chip colours. Ink flips with the theme automatically. */
+/* Chip colours. */
 @utility chip-ink {
   background: var(--color-ink);
   color: var(--color-paper);
