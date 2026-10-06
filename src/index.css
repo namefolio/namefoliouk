@@ -18,33 +18,15 @@
 
 /* ── Base ─────────────────────────────────────────────────── */
 
-/* ── Themes ───────────────────────────────────────────────
-   Light is the default. Dark is applied via <html data-theme="dark">,
-   set before first paint by the inline script in index.html. */
-
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: only light;
     --backdrop: rgb(23 24 22 / 0.28);
-  }
-
-  :root[data-theme='dark'] {
-    color-scheme: dark;
-    --color-paper: #141513;
-    --color-ink: #eceae3;
-    --color-muted: #b3b4ad;
-    --color-olive: #a7b39e;
-    --color-rule: #2f312d;
-    --color-lime: #c8f542;
-    --backdrop: rgb(0 0 0 / 0.55);
   }
 }
 
 @layer base {
   html {
-    transition:
-      background-color 500ms var(--ease-editorial),
-      color 500ms var(--ease-editorial);
     background: var(--color-paper);
     color: var(--color-ink);
     scroll-behavior: smooth;
