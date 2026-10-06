@@ -1,6 +1,6 @@
 # Namefolio
 
-One-page site for **namefolio.co.uk**: short, memorable domain names for startups and growing businesses, plus help for owners who want to sell theirs.
+One-page site for **namefolio.co.uk**, presenting a changing collection of domain names and help for owners who want to sell theirs. It doesn't list individual domains: visitors email to ask what's available.
 
 Built with React, Vite, TypeScript and Tailwind CSS. The font (Figtree) is self-hosted through Fontsource, so the site makes no requests to Google.
 
@@ -28,37 +28,21 @@ npm run preview   # serves dist/ locally to check the production build
 npm run lint      # optional: ESLint
 ```
 
-## 4. Change the domain portfolio
+## 4. Change the text
 
-Edit **`src/data/domains.ts`**:
+Everything on the page lives in **`src/components/Home.tsx`**:
 
-```ts
-export const domains: Domain[] = [
-  { name: 'example.co.uk', status: 'available' },
-  { name: 'anotherdomain.com', status: 'available' },
-  // …
-]
-```
+- each block is a small uppercase question label followed by its text;
+- `<Chip>` puts a word or phrase on a solid block. It takes `colour` (`ink`, `lime`, `cobalt` or `clay`) and an optional `href` to make it a link;
+- the colourful "Got domains to sell?" sentence is the `SELLING` list at the top of the file. Each entry is plain text, or text with a chip colour.
 
-- The order in the list is the order on the page. Numbers (01, 02, …) are added automatically.
-- `status` can be `'available'`, `'under-offer'` or `'sold'`. The labels shown on the page are in `STATUS_LABEL` in the same file.
+Chip colours are defined in `src/index.css` (`chip-*` utilities and the `--color-*` tokens).
 
 ## 5. Change the email address
 
-Edit **`src/config/site.ts`** and change `email`. The Contact section, the footer and the enquiry fallback all use it.
+Edit **`src/config/site.ts`** and change `email`. Every email link on the page uses it. The wordmark text (`Namefolio.co.uk`) is `displayName` in the same file.
 
 Also update the email in the `<noscript>` fallback in `index.html`.
-
-### Connecting the enquiry form
-
-Clicking a domain opens an enquiry drawer. By default, **Send enquiry** opens the visitor's email client with a message to `SITE.email` already filled in, so it works without a backend.
-
-To send enquiries through a form service instead, set `ENQUIRY_ENDPOINT` in **`src/lib/enquiry.ts`**:
-
-- **Formspree:** create a form, then set `ENQUIRY_ENDPOINT = 'https://formspree.io/f/your-id'`.
-- **Resend (or any email API):** create a small serverless function (for example `/api/enquiry` on Vercel, Netlify or Cloudflare) that calls the API server-side, and point `ENQUIRY_ENDPOINT` at it. Never put API keys in front-end code.
-
-The form sends a JSON `POST` with `{ domain, name, email, message }`.
 
 ## 6. Deploy
 
@@ -82,13 +66,10 @@ The canonical URL, Open Graph tags and sitemap all assume `https://namefolio.co.
 
 ```
 src/
-  config/site.ts        name, email, year
-  data/domains.ts       the portfolio
-  lib/enquiry.ts        enquiry submission (connect Formspree / Resend here)
-  hooks/useReveal.ts    subtle scroll reveal
-  components/           Navbar, Hero, Portfolio, DomainRow, EnquiryModal,
-                        Outbound, Contact, Footer, SectionLabel
-  index.css             design tokens (colours, fonts), motion, drawer styles
+  config/site.ts        name, wordmark, email, year
+  components/Home.tsx   the whole page: labels, text and chips
+  components/           Chip, QuestionLabel, Footer
+  index.css             design tokens (colours, font), chip styles, motion
 public/                 favicon, icons, Open Graph image, robots.txt, sitemap
 ```
 
