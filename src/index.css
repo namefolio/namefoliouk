@@ -128,6 +128,33 @@
   }
 }
 
+/* ── Layout ───────────────────────────────────────────────── */
+
+/* Thin rule that separates rows and the footer. */
+@utility rule {
+  border-top: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+}
+
+/* A labelled row below the hero: the label sits above the content on
+   phones and in its own narrow column from tablet width up. */
+@utility row {
+  border-top: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+  display: grid;
+  gap: 1rem;
+  padding-block: 2.25rem 3rem;
+  @media (width >= 48rem) {
+    grid-template-columns: 11rem 1fr;
+    gap: 2.5rem;
+    padding-block: 2.75rem 4rem;
+    & > .label {
+      padding-top: 0.6em;
+    }
+  }
+  @media (width >= 64rem) {
+    grid-template-columns: 14rem 1fr;
+  }
+}
+
 /* ── Motion ───────────────────────────────────────────────── */
 
 /* Blocks fade in from 0.01, not 0. Browsers skip fully transparent text when
