@@ -4,13 +4,7 @@
   --color-paper: #f4f2ed;
   --color-ink: #171816;
   --color-muted: #55564f;
-  --color-olive: #263027;
   --color-rule: #d8d6cf;
-  --color-white: #ffffff;
-  --color-lime: #a3d31f;
-  --color-on-lime: #171816;
-  --color-clay: #b8452f;
-  --color-cobalt: #2b59c3;
 
   --font-sans: 'Figtree Variable', 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
@@ -43,26 +37,17 @@
   }
 
   ::selection {
-    background: var(--color-lime);
-    color: var(--color-on-lime);
+    background: var(--color-ink);
+    color: var(--color-paper);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-lime);
+    outline: 2px solid var(--color-ink);
     outline-offset: 3px;
   }
 }
 
 /* ── Type primitives ──────────────────────────────────────── */
-
-/* Small spaced-out question labels: "WHAT IS A DOMAIN NAME?" */
-@utility label {
-  font-size: 0.75rem; /* 12px */
-  line-height: 1.4;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
 
 /* Big bold statements. */
 @utility display {
@@ -71,38 +56,12 @@
   line-height: 1.12;
 }
 
-/* Solid highlight block behind a word or phrase. `clone` repeats the
-   padding and background on every line when a chip wraps. */
-@utility chip {
-  padding: 0 0.28em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
-/* Chip colours. */
-@utility chip-ink {
-  background: var(--color-ink);
-  color: var(--color-paper);
-}
-@utility chip-lime {
-  background: var(--color-lime);
-  color: var(--color-on-lime);
-}
-@utility chip-cobalt {
-  background: var(--color-cobalt);
-  color: var(--color-white);
-}
-@utility chip-clay {
-  background: var(--color-clay);
-  color: var(--color-white);
-}
-
 /* ── Motion ───────────────────────────────────────────────── */
 
 @keyframes rise {
   from {
-    opacity: 0;
-    transform: translateY(10px);
+    opacity: 0.01;
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -111,8 +70,7 @@
 }
 
 .enter {
-  opacity: 0;
-  animation: rise 700ms var(--ease-editorial) forwards;
+  animation: rise 700ms var(--ease-editorial) both;
   animation-delay: var(--delay, 0ms);
 }
 

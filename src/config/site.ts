@@ -4,9 +4,10 @@
  */
 export const SITE = {
   name: 'Namefolio',
-  /** The wordmark, shown in a black block like DomainName.com. */
-  displayName: 'Namefolio.co.uk',
   email: 'hello@namefolio.co.uk',
   url: 'https://namefolio.co.uk',
   year: 2026,
 } as const
+
+/** The domains shown on the page, in order. */
+export const DOMAINS = ['FarmReservoirs.co.uk', 'GridConnection.co.uk', 'EPCImprovement.co.uk', 'FarmRobot.co.uk'] as const

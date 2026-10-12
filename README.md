@@ -1,6 +1,6 @@
 # Namefolio
 
-One-page site for **namefolio.co.uk**, presenting a changing collection of domain names and help for owners who want to sell theirs. It doesn't list individual domains: visitors email to ask what's available.
+One-page minimalist site for **namefolio.co.uk**: the wordmark, one line about the portfolio, and the list of domains. Each domain links to an email enquiry.
 
 Built with React, Vite, TypeScript and Tailwind CSS. The font (Figtree) is self-hosted through Fontsource, so the site makes no requests to Google.
 
@@ -30,19 +30,11 @@ npm run lint      # optional: ESLint
 
 ## 4. Change the text
 
-Everything on the page lives in **`src/components/Home.tsx`**:
-
-- each block is a small uppercase question label followed by its text;
-- `<Chip>` puts a word or phrase on a solid block. It takes `colour` (`ink`, `lime`, `cobalt` or `clay`) and an optional `href` to make it a link;
-- the colourful "Got domains to sell?" sentence is the `SELLING` list at the top of the file. Each entry is plain text, or text with a chip colour.
-
-Chip colours are defined in `src/index.css` (`chip-*` utilities and the `--color-*` tokens).
+The page lives in **`src/components/Home.tsx`**: the wordmark, the one-line description and the domain list. The domains themselves are the `DOMAINS` list in **`src/config/site.ts`**; add, remove or reorder them there. Colours are the `--color-*` tokens in `src/index.css`.
 
 ## 5. Change the email address
 
-Edit **`src/config/site.ts`** and change `email`. Every email link on the page uses it. The wordmark text (`Namefolio.co.uk`) is `displayName` in the same file.
-
-Also update the email in the `<noscript>` fallback in `index.html`.
+Edit **`src/config/site.ts`** and change `email`. Every email link on the page uses it. Also update the email in the `<noscript>` fallback in `index.html`.
 
 ## 6. Deploy
 
