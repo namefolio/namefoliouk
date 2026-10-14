@@ -1,8 +1,8 @@
 # Namefolio
 
-> Namefolio looks after a changing collection of short, memorable domain names for startups and growing businesses, and helps owners who want to sell their domains.
+> A portfolio of strong keyword, clear commercial intent, easy to remember domains.
 
-The site does not list individual domains. To ask what is available, or to sell a domain or a portfolio, email hello@namefolio.co.uk.
+Domains in the portfolio: FarmReservoirs.co.uk, GridConnection.co.uk, FarmRobot.co.uk. To enquire about any of them, email hello@namefolio.co.uk.
 
 - [Namefolio.co.uk](https://namefolio.co.uk/): home page
-- [Email Namefolio](mailto:hello@namefolio.co.uk): enquiries about buying or selling domain names
+- [Email Namefolio](mailto:hello@namefolio.co.uk): enquiries about the domains

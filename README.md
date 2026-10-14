@@ -1,6 +1,6 @@
 # Namefolio
 
-One-page site for **namefolio.co.uk**, presenting a changing collection of domain names and help for owners who want to sell theirs. It doesn't list individual domains: visitors email to ask what's available.
+One-page minimalist site for **namefolio.co.uk**: the wordmark, one line about the portfolio, and the list of domains. Each domain links to an email enquiry.
 
 Plain HTML styled with Tailwind CSS and built with Vite. The page ships no JavaScript: the build inlines the CSS into the HTML, so a visit is one HTML file plus the font. The font (Figtree) is self-hosted through Fontsource, so the site makes no requests to Google.
 
@@ -27,17 +27,13 @@ npm run build     # writes static files to dist/
 npm run preview   # serves dist/ locally to check the production build
 ```
 
-## 4. Change the text or email address
+## 4. Change the text, domains or email address
 
-Everything on the page lives in **`index.html`**:
+Everything on the page lives in **`index.html`**: the wordmark, the one-line description, and the domain list. Each domain is an `<li>` in the list; copy one to add a domain, delete one to remove it, and keep the domain in the link's `subject=` so enquiry emails say which domain they're about.
 
-- each block is a small uppercase question label (`class="label"`) followed by its text;
-- a word or phrase on a solid block is a `<span class="chip chip-ink">`. Swap `chip-ink` for `chip-lime`, `chip-cobalt` or `chip-clay` to change its colour;
-- the email links are `<a class="chip chip-ink chip-link" href="mailto:…">`. The address appears twice on the page, so change both. It is also in `public/llms.txt`.
+The email address appears in each domain link and in the footer, so change them all. It is also in `public/llms.txt`, which also lists the domains.
 
-Chip colours are defined in `src/index.css` (`chip-*` utilities and the `--color-*` tokens).
-
-`404.html` is the page shown for any address that doesn't exist.
+Colours are the `--color-*` tokens in `src/index.css`. `404.html` is the page shown for any address that doesn't exist.
 
 ## 5. Deploy
 
@@ -60,9 +56,9 @@ The canonical URL, Open Graph tags and sitemap all assume `https://namefolio.co.
 ## Project structure
 
 ```
-index.html              the whole page: labels, text and chips
+index.html              the whole page: wordmark, description, domain list
 404.html                page-not-found page
-src/index.css           design tokens (colours, font), chip styles, motion
+src/index.css           design tokens (colours, font), motion
 vite.config.ts          build settings, including the step that inlines the CSS
 public/                 favicon, icons, Open Graph image, robots.txt, sitemap,
                         llms.txt, _headers (long cache for built assets)
