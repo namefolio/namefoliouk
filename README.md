@@ -29,9 +29,9 @@ npm run preview   # serves dist/ locally to check the production build
 
 ## 4. Change the text, domains or email address
 
-Everything on the page lives in **`index.html`**: the wordmark, the one-line description, and the domain list. Each domain is an `<li>` in the list; copy one to add a domain, delete one to remove it, and keep the domain in the link's `subject=` so enquiry emails say which domain they're about.
+Everything on the page lives in **`index.html`**: the wordmark, the one-line description, and the domain list. Each domain is an `<li>` in the list whose link opens that domain's own website in a new tab; copy one to add a domain (update both the link and the text) or delete one to remove it.
 
-The email address appears in each domain link and in the footer, so change them all. It is also in `public/llms.txt`, which also lists the domains.
+The email address is in the footer. It is also in `public/llms.txt`, which also lists the domains.
 
 Colours are the `--color-*` tokens in `src/index.css`. `404.html` is the page shown for any address that doesn't exist.
 
