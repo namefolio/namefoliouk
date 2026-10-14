@@ -1,8 +1,8 @@
 # Namefolio
 
-One-page minimalist site for **namefolio.co.uk**: the wordmark, one line about the portfolio, and the list of domains. Each domain links to an email enquiry.
+One-page site for **namefolio.co.uk**, presenting a changing collection of domain names and help for owners who want to sell theirs. It doesn't list individual domains: visitors email to ask what's available.
 
-Built with React, Vite, TypeScript and Tailwind CSS. The font (Figtree) is self-hosted through Fontsource, so the site makes no requests to Google.
+Plain HTML styled with Tailwind CSS and built with Vite. The page ships no JavaScript: the build inlines the CSS into the HTML, so a visit is one HTML file plus the font. The font (Figtree) is self-hosted through Fontsource, so the site makes no requests to Google.
 
 ## 1. Install
 
@@ -23,20 +23,23 @@ Then open the URL it prints (normally http://localhost:5173).
 ## 3. Build for production
 
 ```bash
-npm run build     # type-checks, then writes static files to dist/
+npm run build     # writes static files to dist/
 npm run preview   # serves dist/ locally to check the production build
-npm run lint      # optional: ESLint
 ```
 
-## 4. Change the text
+## 4. Change the text or email address
 
-The page lives in **`src/components/Home.tsx`**: the wordmark, the one-line description and the domain list. The domains themselves are the `DOMAINS` list in **`src/config/site.ts`**; add, remove or reorder them there. Colours are the `--color-*` tokens in `src/index.css`.
+Everything on the page lives in **`index.html`**:
 
-## 5. Change the email address
+- each block is a small uppercase question label (`class="label"`) followed by its text;
+- a word or phrase on a solid block is a `<span class="chip chip-ink">`. Swap `chip-ink` for `chip-lime`, `chip-cobalt` or `chip-clay` to change its colour;
+- the email links are `<a class="chip chip-ink chip-link" href="mailto:…">`. The address appears twice on the page, so change both. It is also in `public/llms.txt`.
 
-Edit **`src/config/site.ts`** and change `email`. Every email link on the page uses it. Also update the email in the `<noscript>` fallback in `index.html`.
+Chip colours are defined in `src/index.css` (`chip-*` utilities and the `--color-*` tokens).
 
-## 6. Deploy
+`404.html` is the page shown for any address that doesn't exist.
+
+## 5. Deploy
 
 `npm run build` produces a fully static site in `dist/`, which any static host can serve.
 
@@ -57,12 +60,12 @@ The canonical URL, Open Graph tags and sitemap all assume `https://namefolio.co.
 ## Project structure
 
 ```
-src/
-  config/site.ts        name, wordmark, email, year
-  components/Home.tsx   the whole page: labels, text and chips
-  components/           Chip, QuestionLabel, Footer
-  index.css             design tokens (colours, font), chip styles, motion
-public/                 favicon, icons, Open Graph image, robots.txt, sitemap
+index.html              the whole page: labels, text and chips
+404.html                page-not-found page
+src/index.css           design tokens (colours, font), chip styles, motion
+vite.config.ts          build settings, including the step that inlines the CSS
+public/                 favicon, icons, Open Graph image, robots.txt, sitemap,
+                        llms.txt, _headers (long cache for built assets)
 ```
 
 Colours and fonts are defined once, in the `@theme` block at the top of `src/index.css`.

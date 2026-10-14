@@ -1,14 +1,40 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/figtree';
 
 @theme {
   --color-paper: #f4f2ed;
   --color-ink: #171816;
-  --color-muted: #55564f;
-  --color-rule: #d8d6cf;
+  --color-white: #ffffff;
+  --color-lime: #a3d31f;
+  --color-on-lime: #171816;
+  --color-clay: #b8452f;
+  --color-cobalt: #2b59c3;
 
-  --font-sans: 'Figtree Variable', 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Figtree Variable', 'Figtree Fallback', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Arial resized to Figtree's metrics. Text shows in this while Figtree
+   loads, so swapping fonts doesn't shift the layout. Liberation Sans has the
+   same metrics as Arial and stands in for it on Linux. */
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Arial'), local('ArialMT'), local('Liberation Sans');
+  font-weight: 100 599;
+  size-adjust: 100.3%;
+  ascent-override: 94.72%;
+  descent-override: 24.93%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold');
+  font-weight: 600 900;
+  size-adjust: 95.73%;
+  ascent-override: 99.24%;
+  descent-override: 26.12%;
+  line-gap-override: 0%;
 }
 
 @layer base {
@@ -37,17 +63,26 @@
   }
 
   ::selection {
-    background: var(--color-ink);
-    color: var(--color-paper);
+    background: var(--color-lime);
+    color: var(--color-on-lime);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ink);
+    outline: 2px solid var(--color-lime);
     outline-offset: 3px;
   }
 }
 
 /* ── Type primitives ──────────────────────────────────────── */
+
+/* Small spaced-out question labels: "WHAT IS A DOMAIN NAME?" */
+@utility label {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
 
 /* Big bold statements. */
 @utility display {
@@ -56,12 +91,79 @@
   line-height: 1.12;
 }
 
+/* Solid highlight block behind a word or phrase. `clone` repeats the
+   padding and background on every line when a chip wraps. */
+@utility chip {
+  padding: 0 0.28em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Chip colours. */
+@utility chip-ink {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+@utility chip-lime {
+  background: var(--color-lime);
+  color: var(--color-on-lime);
+}
+@utility chip-cobalt {
+  background: var(--color-cobalt);
+  color: var(--color-white);
+}
+@utility chip-clay {
+  background: var(--color-clay);
+  color: var(--color-white);
+}
+
+/* Chip that is a link (the email address): turns lime on hover. */
+@utility chip-link {
+  transition: background-color 300ms, color 300ms;
+  @media (hover: hover) {
+    &:hover {
+      background: var(--color-lime);
+      color: var(--color-on-lime);
+    }
+  }
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+
+/* Thin rule that separates rows and the footer. */
+@utility rule {
+  border-top: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+}
+
+/* A labelled row below the hero: the label sits above the content on
+   phones and in its own narrow column from tablet width up. */
+@utility row {
+  border-top: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+  display: grid;
+  gap: 1rem;
+  padding-block: 2.25rem 3rem;
+  @media (width >= 48rem) {
+    grid-template-columns: 11rem 1fr;
+    gap: 2.5rem;
+    padding-block: 2.75rem 4rem;
+    & > .label {
+      padding-top: 0.6em;
+    }
+  }
+  @media (width >= 64rem) {
+    grid-template-columns: 14rem 1fr;
+  }
+}
+
 /* ── Motion ───────────────────────────────────────────────── */
 
+/* Blocks fade in from 0.01, not 0. Browsers skip fully transparent text when
+   they record Largest Contentful Paint, so starting at 0 leaves PageSpeed
+   Insights with no LCP and no Performance score. 0.01 still looks invisible. */
 @keyframes rise {
   from {
     opacity: 0.01;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -70,7 +172,8 @@
 }
 
 .enter {
-  animation: rise 700ms var(--ease-editorial) both;
+  opacity: 0.01;
+  animation: rise 700ms var(--ease-editorial) forwards;
   animation-delay: var(--delay, 0ms);
 }
 
