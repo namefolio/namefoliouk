@@ -1,6 +1,6 @@
 # Namefolio
 
-One-page minimalist site for **namefolio.co.uk**: the wordmark, one line about the portfolio, and the list of domains. Each domain links to an email enquiry.
+One-page minimalist site for **namefolio.co.uk**: the wordmark, a headline with one supporting line, and the list of domains. Each domain links to an email enquiry.
 
 Plain HTML styled with Tailwind CSS and built with Vite. The page ships no JavaScript: the build inlines the CSS into the HTML, so a visit is one HTML file plus the font. The font (Figtree) is self-hosted through Fontsource, so the site makes no requests to Google.
 
@@ -29,7 +29,7 @@ npm run preview   # serves dist/ locally to check the production build
 
 ## 4. Change the text, domains or email address
 
-Everything on the page lives in **`index.html`**: the wordmark, the one-line description, and the domain list. Each domain is an `<li>` in the list whose link opens that domain's own website in a new tab; copy one to add a domain (update both the link and the text) or delete one to remove it.
+Everything on the page lives in **`index.html`**: the wordmark, the headline and its supporting line, and the domain list. Each domain is an `<li>` in the list whose link opens that domain's own website in a new tab; copy one to add a domain (update both the link and the text) or delete one to remove it.
 
 The email address is in the footer. It is also in `public/llms.txt`, which also lists the domains.
 
