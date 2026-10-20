@@ -6,6 +6,7 @@
   --color-ink: #171816;
   --color-muted: #55564f;
   --color-rule: #d8d6cf;
+  --color-lime: #a3d31f;
 
   --font-sans: 'Figtree Variable', 'Figtree Fallback', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
@@ -60,8 +61,8 @@
   }
 
   ::selection {
-    background: var(--color-ink);
-    color: var(--color-paper);
+    background: var(--color-lime);
+    color: var(--color-ink);
   }
 
   :focus-visible {
