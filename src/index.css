@@ -80,14 +80,6 @@
   line-height: 1.12;
 }
 
-/* Lime highlighter stroke behind the lower part of a phrase. The text stays
-   ink, so contrast is unaffected. `clone` repeats it on every wrapped line. */
-@utility marker {
-  background: linear-gradient(transparent 62%, var(--color-lime) 62%, var(--color-lime) 90%, transparent 90%);
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
 /* ── Motion ───────────────────────────────────────────────── */
 
 /* Blocks fade in from 0.01, not 0. Browsers skip fully transparent text when
