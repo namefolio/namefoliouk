@@ -6,6 +6,7 @@
   --color-ink: #171816;
   --color-muted: #55564f;
   --color-rule: #d8d6cf;
+  --color-lime: #a3d31f;
 
   --font-sans: 'Figtree Variable', 'Figtree Fallback', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
@@ -60,8 +61,8 @@
   }
 
   ::selection {
-    background: var(--color-ink);
-    color: var(--color-paper);
+    background: var(--color-lime);
+    color: var(--color-ink);
   }
 
   :focus-visible {
@@ -77,6 +78,14 @@
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.12;
+}
+
+/* Lime highlighter stroke behind the lower part of a phrase. The text stays
+   ink, so contrast is unaffected. `clone` repeats it on every wrapped line. */
+@utility marker {
+  background: linear-gradient(transparent 62%, var(--color-lime) 62%, var(--color-lime) 90%, transparent 90%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* ── Motion ───────────────────────────────────────────────── */
